@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meridian Trade Co. — Import, Export &amp; Freight Forwarding</title>
+<meta name="description" content="Meridian Trade Co. sources, ships, and clears goods across borders — ocean and air freight, customs brokerage, warehousing, and trade compliance under one manifest.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%230B1E33' stroke='%23C6952E' stroke-width='4'/%3E%3Cpath d='M50 12 L58 46 L88 50 L58 54 L50 88 L42 54 L12 50 L42 46 Z' fill='%23C6952E'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="top">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+        <path d="M50 12 L58 46 L88 50 L58 54 L50 88 L42 54 L12 50 L42 46 Z" fill="currentColor"/>
+      </svg>
+      <span class="brand-word">MERIDIAN<em>Trade Co.</em></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a href="#contact" class="btn btn-brass btn-small">Request a Quote</a>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="main-nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero-map" aria-hidden="true">
+    <svg viewBox="0 0 1200 640" preserveAspectRatio="xMidYMid slice" id="route-map">
+      <!-- faint world dot grid -->
+      <g class="world-dots" id="world-dots"></g>
+
+      <!-- trade routes -->
+      <g class="routes" fill="none" stroke-linecap="round">
+        <path id="route-1" class="route" d="M 190 300 C 400 150, 650 150, 860 260" />
+        <path id="route-2" class="route" d="M 860 260 C 950 330, 980 420, 940 500" />
+        <path id="route-3" class="route" d="M 190 300 C 260 420, 400 470, 560 480" />
+        <path id="route-4" class="route" d="M 560 480 C 700 460, 800 400, 860 260" />
+        <path id="route-5" class="route" d="M 190 300 C 120 220, 130 140, 230 90" />
+      </g>
+
+      <!-- ports -->
+      <g class="ports">
+        <g class="port" transform="translate(190,300)"><circle r="5"/><circle r="12" class="pulse"/><text x="12" y="-10">LOS ANGELES · USLAX</text></g>
+        <g class="port" transform="translate(860,260)"><circle r="5"/><circle r="12" class="pulse" style="animation-delay:.6s"/><text x="12" y="-10">SHANGHAI · CNSHA</text></g>
+        <g class="port" transform="translate(560,120)"><circle r="5"/><circle r="12" class="pulse" style="animation-delay:1.1s"/><text x="12" y="-10">ROTTERDAM · NLRTM</text></g>
+        <g class="port" transform="translate(940,500)"><circle r="5"/><circle r="12" class="pulse" style="animation-delay:1.6s"/><text x="12" y="18">SINGAPORE · SGSIN</text></g>
+        <g class="port" transform="translate(560,480)"><circle r="5"/><circle r="12" class="pulse" style="animation-delay:2s"/><text x="12" y="18">SANTOS · BRSSZ</text></g>
+      </g>
+    </svg>
+  </div>
+
+  <div class="wrap hero-inner">
+    <p class="eyebrow">GLOBAL IMPORT · EXPORT · FREIGHT FORWARDING</p>
+    <h1 class="hero-title">WE MOVE<br>TRADE FORWARD.</h1>
+    <p class="hero-sub">Meridian Trade Co. sources, ships, and clears goods across borders — so your business can focus on selling, not on customs codes and container schedules.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-brass">Request a Quote</a>
+      <a href="#process" class="btn btn-ghost">See How It Works</a>
+    </div>
+  </div>
+
+  <div class="stat-strip" id="stat-strip">
+    <div class="wrap stat-strip-inner">
+      <div class="stat"><span class="stat-num" data-target="40" data-suffix="+">0</span><span class="stat-label">Countries served</span></div>
+      <div class="stat"><span class="stat-num" data-target="1200" data-suffix="+">0</span><span class="stat-label">Shipments per month</span></div>
+      <div class="stat"><span class="stat-num" data-target="98.6" data-decimal="1" data-suffix="%">0</span><span class="stat-label">On-time customs clearance</span></div>
+      <div class="stat"><span class="stat-num" data-target="15" data-suffix=" yrs">0</span><span class="stat-label">Moving trade forward</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-dark">WHAT WE HANDLE</p>
+    <h2 class="section-title">End-to-end trade,<br>under one manifest.</h2>
+
+    <div class="card-grid reveal-group">
+      <article class="service-card reveal">
+        <span class="card-code">SVC-01</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 30h36l-4 10H10z"/><path d="M10 30V16h8l6-8h6l4 8v14"/><circle cx="16" cy="42" r="3"/><circle cx="34" cy="42" r="3"/></svg>
+        <h3>Ocean Freight</h3>
+        <p>FCL and LCL container shipping across every major trade lane, with slot priority through our carrier partnerships.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="card-code">SVC-02</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M4 26 42 12l2 4-14 8 5 14-6 2-8-13-9 6v7l-4 1v-9z"/></svg>
+        <h3>Air Freight</h3>
+        <p>Express and standard air cargo for time-critical or high-value goods, booked direct with route flexibility.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="card-code">SVC-03</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="6" width="32" height="36" rx="2"/><path d="M15 16h18M15 24h18M15 32h10"/><path d="M32 32l4 4 6-8" class="stroke-brass"/></svg>
+        <h3>Customs Brokerage</h3>
+        <p>Licensed clearance on both sides of the border — tariff classification, duty planning, and clean documentation.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="card-code">SVC-04</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><path d="M6 18 24 8l18 10v20l-18 10-18-10z"/><path d="M6 18l18 10 18-10M24 28v18"/></svg>
+        <h3>Warehousing &amp; Distribution</h3>
+        <p>Bonded and general storage at key ports, with pick-pack and last-mile distribution on request.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="card-code">SVC-05</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="18" r="9"/><path d="M8 42c0-9 7-15 16-15s16 6 16 15"/></svg>
+        <h3>Sourcing &amp; Procurement</h3>
+        <p>Vetted supplier networks and factory audits, so what you order is what actually leaves the dock.</p>
+      </article>
+      <article class="service-card reveal">
+        <span class="card-code">SVC-06</span>
+        <svg class="card-icon" viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="6" width="28" height="36" rx="2"/><path d="M17 16h14M17 24h14M17 32h8"/></svg>
+        <h3>Trade Compliance</h3>
+        <p>HS code review, restricted-party screening, and audit-ready records for every shipment we touch.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="section section-dark" id="process">
+  <div class="wrap">
+    <p class="eyebrow">HOW A SHIPMENT MOVES</p>
+    <h2 class="section-title section-title-light">From request<br>to receiving dock.</h2>
+
+    <ol class="timeline reveal-group">
+      <li class="timeline-step reveal">
+        <span class="step-num">01</span>
+        <div><h3>Request &amp; Quote</h3><p>Tell us origin, destination, cargo type and volume. We return a rated quote within one business day.</p></div>
+      </li>
+      <li class="timeline-step reveal">
+        <span class="step-num">02</span>
+        <div><h3>Sourcing &amp; Booking</h3><p>We confirm suppliers if needed, book carrier space, and issue the booking confirmation and packing plan.</p></div>
+      </li>
+      <li class="timeline-step reveal">
+        <span class="step-num">03</span>
+        <div><h3>Export Customs</h3><p>Export declarations, HS classification, and any licenses are filed before the cargo leaves origin.</p></div>
+      </li>
+      <li class="timeline-step reveal">
+        <span class="step-num">04</span>
+        <div><h3>Transit</h3><p>Ocean or air, tracked door to port with milestone updates and proactive delay handling.</p></div>
+      </li>
+      <li class="timeline-step reveal">
+        <span class="step-num">05</span>
+        <div><h3>Import Customs &amp; Duties</h3><p>Entry filed on arrival, duties calculated in advance so there are no surprises at release.</p></div>
+      </li>
+      <li class="timeline-step reveal">
+        <span class="step-num">06</span>
+        <div><h3>Last-Mile Delivery</h3><p>Cleared cargo moves to your warehouse, distribution center, or end customer.</p></div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section class="section" id="industries">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-dark">WHO WE SHIP FOR</p>
+    <h2 class="section-title">Every manifest<br>looks different.</h2>
+    <p class="section-lede">We route cargo for these industries every week — and plenty of others besides.</p>
+
+    <div class="stamp-grid reveal-group">
+      <span class="stamp reveal">Textiles &amp; Apparel</span>
+      <span class="stamp reveal">Electronics &amp; Components</span>
+      <span class="stamp reveal">Machinery &amp; Industrial Equipment</span>
+      <span class="stamp reveal">Food &amp; Agriculture</span>
+      <span class="stamp reveal">Chemicals &amp; Materials</span>
+      <span class="stamp reveal">Furniture &amp; Home Goods</span>
+      <span class="stamp reveal">Automotive Parts</span>
+      <span class="stamp reveal">Consumer Goods</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / TRUST ============ -->
+<section class="section section-paper" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <p class="eyebrow eyebrow-dark">ABOUT MERIDIAN</p>
+      <h2 class="section-title">Fifteen years of<br>keeping cargo moving.</h2>
+      <p>Meridian Trade Co. was founded on a simple frustration: too many freight forwarders treat documentation as an afterthought, and clients pay for it in delays. We built the business the other way around — compliance and paperwork lead, transportation follows.</p>
+      <p>Today we operate as an extension of our clients' own logistics teams: one point of contact, transparent rates, and a paper trail that holds up if customs ever asks a second question.</p>
+    </div>
+    <div class="ledger reveal">
+      <div class="ledger-row"><span>Years in operation</span><strong>15</strong></div>
+      <div class="ledger-row"><span>Countries served</span><strong>40+</strong></div>
+      <div class="ledger-row"><span>Port &amp; airport network</span><strong>120+</strong></div>
+      <div class="ledger-row"><span>On-time clearance rate</span><strong>98.6%</strong></div>
+      <div class="ledger-row"><span>Dedicated account managers</span><strong>Yes</strong></div>
+      <div class="ledger-row"><span>Compliance incidents, last 5 yrs</span><strong>0</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <p class="eyebrow eyebrow-dark">ON THE RECORD</p>
+    <h2 class="section-title">What shippers say.</h2>
+
+    <div class="testimonial-grid reveal-group">
+      <figure class="testimonial reveal">
+        <span class="verified-stamp">VERIFIED SHIPPER</span>
+        <blockquote>Meridian caught a tariff classification issue before it became a customs hold. That one call saved us two weeks and a five-figure penalty.</blockquote>
+        <figcaption>— Operations Director, Home Goods Importer</figcaption>
+      </figure>
+      <figure class="testimonial reveal">
+        <span class="verified-stamp">VERIFIED SHIPPER</span>
+        <blockquote>We moved from three regional brokers to one Meridian account manager. Our paperwork errors dropped to nearly zero within a quarter.</blockquote>
+        <figcaption>— Supply Chain Lead, Electronics Manufacturer</figcaption>
+      </figure>
+      <figure class="testimonial reveal">
+        <span class="verified-stamp">VERIFIED SHIPPER</span>
+        <blockquote>Straightforward rates, no surprise accessorials, and someone always picks up the phone. That's rarer than it should be in freight.</blockquote>
+        <figcaption>— Founder, Specialty Foods Exporter</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / QUOTE CTA ============ -->
+<section class="section section-cta" id="contact">
+  <div class="wrap cta-grid">
+    <div class="cta-copy reveal">
+      <p class="eyebrow">READY TO SHIP?</p>
+      <h2 class="section-title section-title-light">Get a rated quote<br>within one business day.</h2>
+      <p>Tell us what's moving and where. A member of our team will follow up with pricing, transit time, and next steps — no obligation.</p>
+      <ul class="contact-details">
+        <li><strong>Email</strong> quotes@meridiantrade.example</li>
+        <li><strong>Phone</strong> +1 (555) 019-2044</li>
+        <li><strong>Hours</strong> Mon–Fri, 8:00–19:00 local</li>
+      </ul>
+    </div>
+
+    <form class="quote-form reveal" id="quote-form" novalidate>
+      <div class="form-row">
+        <label for="name">Full name</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div class="form-row">
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company" required>
+      </div>
+      <div class="form-row">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div class="form-row form-row-split">
+        <div>
+          <label for="origin">Origin</label>
+          <input type="text" id="origin" name="origin" placeholder="City, country">
+        </div>
+        <div>
+          <label for="destination">Destination</label>
+          <input type="text" id="destination" name="destination" placeholder="City, country">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="cargo">Cargo type &amp; volume</label>
+        <input type="text" id="cargo" name="cargo" placeholder="e.g. 2× 40ft containers, machine parts">
+      </div>
+      <div class="form-row">
+        <label for="message">Anything else we should know?</label>
+        <textarea id="message" name="message" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-brass btn-full">Request a Quote</button>
+      <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="brand">
+        <svg class="brand-mark" viewBox="0 0 100 100" aria-hidden="true">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+          <path d="M50 12 L58 46 L88 50 L58 54 L50 88 L42 54 L12 50 L42 46 Z" fill="currentColor"/>
+        </svg>
+        <span class="brand-word">MERIDIAN<em>Trade Co.</em></span>
+      </a>
+      <p>Import, export, and freight forwarding for businesses that ship between continents.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#about">About</a>
+      <a href="#process">How it works</a>
+      <a href="#industries">Industries</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#services">Ocean Freight</a>
+      <a href="#services">Air Freight</a>
+      <a href="#services">Customs Brokerage</a>
+      <a href="#services">Warehousing</a>
+    </div>
+
+    <div class="footer-col footer-offices">
+      <h4>Offices</h4>
+      <p><span>Los Angeles</span><code>USLAX</code></p>
+      <p><span>Rotterdam</span><code>NLRTM</code></p>
+      <p><span>Singapore</span><code>SGSIN</code></p>
+    </div>
+  </div>
+
+  <div class="wrap footer-bottom">
+    <p>© <span id="year"></span> Meridian Trade Co. All rights reserved.</p>
+    <p class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Compliance</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
