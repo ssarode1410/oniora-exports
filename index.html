@@ -350,7 +350,9 @@
       </ul>
     </div>
 
-    <form class="quote-form" id="quote-form" novalidate>
+    <form class="quote-form" id="quote-form" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="8b5c82a2-2b8d-438d-8bbe-06a9642e7b5b">
+      
       <div class="form-row">
         <label for="name">Full name</label>
         <input type="text" id="name" name="name" required>
