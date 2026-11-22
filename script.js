@@ -93,23 +93,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   }
 
-  /* ---------- Quote form (front-end only demo) ---------- */
-  var form = document.getElementById('quote-form');
-  var note = document.getElementById('form-note');
-  if (form && note) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      if (!form.checkValidity()) {
-        note.textContent = 'Please fill in your name, company, and email before sending.';
+  /* -------- Quote form (Web3Forms) -------- */
+var form = document.getElementById('quote-form');
+var note = document.getElementById('form-note');
+if (form && note) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      note.textContent = 'Please fill in your name, company, and email before sending.';
+      note.style.color = '#B33A3A';
+      return;
+    }
+
+    note.style.color = '';
+    note.textContent = 'Sending your request...';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    })
+      .then(function (response) {
+        if (response.ok) {
+          var name = document.getElementById('name').value.trim();
+          note.textContent = 'Thanks, ' + name.split(' ')[0] + ' — your quote request has been sent. We will respond within one business day.';
+          form.reset();
+        } else {
+          note.style.color = '#B33A3A';
+          note.textContent = 'Something went wrong. Please email us directly at onioraexports@gmail.com.';
+        }
+      })
+      .catch(function () {
         note.style.color = '#B33A3A';
-        return;
-      }
-      var name = document.getElementById('name').value.trim();
-      note.style.color = '';
-      note.textContent = 'Thanks, ' + name.split(' ')[0] + ' — your request is logged. This form needs a backend or form service (e.g. Formspree, a mail API) connected before it can send for real.';
-      form.reset();
-    });
-  }
+        note.textContent = 'Network error. Please email us directly at onioraexports@gmail.com.';
+      });
+  });
+}
 
   /* ---------- Header background solidifies after scroll ---------- */
   var header = document.querySelector('.site-header');
