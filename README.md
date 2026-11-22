@@ -1,26 +1,62 @@
 # Oniora Export Co. — Website
 
-A complete, self-contained website for a premium onion export business based in Nashik, Maharashtra. No build tools, frameworks, or paid services required.
+A clean, responsive, single-page website for **Oniora Export Co.**, an international agricultural exporter based in Gangapur, Maharashtra, India. 
 
-## Files
-- `index.html` — all page content and structure
-- `styles.css` — all visual design (colors, type, layout, animation)
-- `script.js` — mobile menu, scroll animations, animated stats, quote-form handling
+The site features interactive product variety popups, direct quote pre-filling, animated performance counters, and integrated email lead capture. Built with standard vanilla web technologies—no build tools, heavy frameworks, or paid server infrastructure required.
 
-## Updating your existing GitHub Pages site
-You already have this live at `https://ssarode1410.github.io/oniora-exports/`. To push this update:
+---
 
-1. Open your `oniora-exports` repository on GitHub.
-2. Click into `index.html` → the pencil (edit) icon → select all → paste in the new content from this file → **Commit changes**.
-3. Do the same for `styles.css` and `script.js` if you're replacing those too (they're mostly unchanged, but re-uploading keeps everything in sync).
-4. GitHub Pages rebuilds automatically within a minute or two — no extra step needed.
+## 📁 Repository Structure
 
-## What to customize before launch
-- **Contact details**: phone number and email (`contact@onioraexports.com`) in the `#contact` section and footer are placeholders — update with your real ones.
-- **Stats**: tonnage, countries served, on-time rate in the hero strip and `#about` ledger are placeholders — replace with your real figures.
-- **Quote form**: `script.js` only shows a confirmation message in the browser — it does **not** send an email yet. Connect it to a form service (e.g. Formspree, Getform) or your own backend to actually receive submissions.
-- **Varieties & grades**: the `#industries` section lists common Indian onion varieties/grades — adjust to match exactly what you export.
-- **Ports & markets**: the hero map and footer currently show JNPT/Nashik as origin and Dubai, Colombo, Chattogram, and Port Klang as destinations — update if your actual shipping lanes differ.
+```
+oniora-exports/
+├── index.html       # Primary HTML structure & product modal templates
+├── styles.css       # Visual styles, color system, typography & animations
+├── script.js        # Mobile navigation, modal controls, stats counter & Web3Forms handling
+├── README.md        # Project documentation
+└── images/          # Image assets
+    ├── logo.png
+    ├── favicon.png
+    ├── sambhaji-nagar-red-onion.jpg
+    ├── fresh-grapes.jpg
+    ├── fresh-pomegranates.jpg
+    └── fresh-green-chillies.jpg
+```
 
-## Domain
-Once you've purchased `onioraexports.com`, follow the custom domain steps in GitHub Pages settings (Settings → Pages → Custom domain) to point it here.
+---
+
+## 🚀 Key Features
+
+* **Interactive Product Catalog:** 4 primary export categories (**Fresh Onions**, **Fresh Grapes**, **Fresh Pomegranates**, and **Fresh Green Chillies**) with click-to-view popups displaying specific export grades, size standards, and packaging options.
+* **One-Click Quote Pre-Fill:** Direct **"Request Quote for This"** triggers inside product modal popups auto-fill the form's `Grade needed` field and scroll directly to the contact section.
+* **Working Lead Form:** Powered by **Web3Forms** (AJAX submission) to deliver incoming buyer quotes directly to `onioraexports@gmail.com` without redirecting the user off-site.
+* **Responsive & Accessible:** Fully mobile-friendly layout with keyboard accessibility (Escape to close modals, Enter/Space key triggers on cards, screen reader labels).
+
+---
+
+## 🛠️ How to Deploy Updates via GitHub
+
+This site is hosted live on **GitHub Pages** with custom domain mapping to `www.onioraexports.com`.
+
+### To push updates:
+1. Open your repository at `https://github.com/ssarode1410/oniora-exports/`.
+2. Upload or update the modified files (`index.html`, `script.js`, `styles.css`, or images in `images/`).
+3. Commit your changes to the `main` branch.
+4. GitHub Pages will automatically rebuild and deploy your updates within 1–2 minutes.
+5. Hard-refresh your browser (`Ctrl + Shift + R` or `Cmd + Shift + R`) to clear cached assets.
+
+---
+
+## 📝 Customization Quick Reference
+
+* **Contact & Form Email:** Update the Web3Forms `access_key` in `index.html` or adjust phone (`+91 73877 82271`) and email (`onioraexports@gmail.com`) fields in `index.html` and `script.js`.
+* **Product Catalog:** Modify variety names, sizing specs, or packing options directly inside the `PRODUCT_CATALOG` object in `script.js`.
+* **Product Images:** Ensure images in `images/` maintain a consistent **4:3 aspect ratio** (e.g., `800 × 600 px`) under **150–250 KB** per file for optimal loading speed.
+
+---
+
+## 🌐 Live URL & Domain Setup
+
+* **Custom Domain:** [https://www.onioraexports.com](https://www.onioraexports.com)
+* **GitHub Pages Default:** [https://ssarode1410.github.io/oniora-exports/](https://ssarode1410.github.io/oniora-exports/)
+* **DNS Settings:** Pointing to GitHub Pages A-records (`185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`) with CNAME for `www`.
