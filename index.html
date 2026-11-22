@@ -3,13 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Oniora Exports Co. — Premium Onion Exports from India</title>
-<meta name="description" content="Oniora Export Co. sources, grades, and ships premium Indian onions to buyers across the Gulf, South Asia, and Southeast Asia — with full phytosanitary documentation and cold-chain handling.">
+<title>Oniora Exports Co. — Premium Indian Agricultural Exports</title>
+<meta name="description" content="Oniora Export Co. sources, grades, and ships premium Indian onions, grapes, pomegranates, and green chillies to buyers across the Gulf, South Asia, and Southeast Asia — with full phytosanitary documentation and cold-chain handling.">
 <link rel="icon" type="image/png" href="images/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Clickable product cards */
+  .product-card[data-product] {
+    cursor: pointer;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    position: relative;
+  }
+  .product-card[data-product]:hover,
+  .product-card[data-product]:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(14, 27, 42, 0.14);
+    outline: 2px solid #c59b38;
+    outline-offset: 2px;
+  }
+  .product-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #9e771f;
+  }
+  .product-card[data-product]:hover .product-cta {
+    color: #0e1b2a;
+  }
+
+  /* Product varieties modal */
+  .product-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 20, 32, 0.78);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+  }
+  .product-modal.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+  .product-modal-dialog {
+    background: #f4efe6;
+    color: #142233;
+    width: 100%;
+    max-width: 920px;
+    max-height: 88vh;
+    overflow-y: auto;
+    border: 1px solid rgba(197, 155, 56, 0.45);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+    position: relative;
+  }
+  .product-modal-header {
+    background: #0e1b2a;
+    color: #f4efe6;
+    padding: 24px 28px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    border-bottom: 2px solid #c59b38;
+  }
+  .product-modal-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #c59b38;
+    margin: 0 0 6px;
+  }
+  .product-modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    margin: 0 0 6px;
+    color: #f4efe6;
+  }
+  .product-modal-sub {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.95rem;
+    color: rgba(244, 239, 230, 0.82);
+    margin: 0;
+  }
+  .product-modal-close {
+    background: transparent;
+    border: 1px solid rgba(244, 239, 230, 0.35);
+    color: #f4efe6;
+    width: 38px;
+    height: 38px;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease;
+  }
+  .product-modal-close:hover {
+    background: #c59b38;
+    border-color: #c59b38;
+    color: #0e1b2a;
+  }
+  .variety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding: 26px 28px 30px;
+  }
+  .variety-card {
+    background: #fbf8f3;
+    border: 1px solid rgba(20, 34, 51, 0.14);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .variety-card h4 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.45rem;
+    letter-spacing: 0.03em;
+    margin: 0 0 6px;
+    color: #0e1b2a;
+  }
+  .variety-card p {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.94rem;
+    line-height: 1.5;
+    margin: 0;
+    color: #364556;
+  }
+  .variety-specs {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    color: #4b5a6b;
+    border-top: 1px solid rgba(20, 34, 51, 0.12);
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .variety-quote-btn {
+    align-self: flex-start;
+    background: #c59b38;
+    color: #0e1b2a;
+    border: none;
+    padding: 9px 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.18s ease, color 0.18s ease;
+  }
+  .variety-quote-btn:hover {
+    background: #0e1b2a;
+    color: #f4efe6;
+  }
+  @media (max-width: 680px) {
+    .variety-grid {
+      grid-template-columns: 1fr;
+      padding: 18px;
+    }
+    .product-modal-header {
+      padding: 18px;
+    }
+  }
+</style>
 </head>
 <body>
 
@@ -156,51 +332,58 @@
   <div class="wrap">
     <p class="eyebrow eyebrow-dark">WHAT WE EXPORT</p>
     <h2 class="section-title">Products, graded<br>to your spec.</h2>
-    <p class="section-lede">Sourced fresh by season and packed to the size grade your market expects.</p>
+    <p class="section-lede">Sourced fresh by season and packed to the size grade your market expects. Click any product below to explore available export varieties.</p>
 
     <div class="product-grid reveal-group">
-      <article class="product-card reveal">
-        <div class="product-photo"><img src="images/sambhaji-nagar-red-onion.jpg" alt="Sambhaji Nagar Red Onion" loading="lazy" onerror="this.style.display='none'"></div>
+      <article class="product-card reveal" data-product="onions" role="button" tabindex="0" aria-label="View Fresh Onions varieties">
+        <div class="product-photo"><img src="images/sambhaji-nagar-red-onion.jpg" alt="Fresh Indian Onions" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="product-body">
-          <h3>Sambhaji Nagar Red Onion</h3>
-          <p>Our signature variety — firm skin, strong shelf life, the standard grade for most export markets.</p>
+          <h3>Fresh Onions</h3>
+          <p>Our flagship export category — cured for long transit shelf life and graded for Gulf, Asian, and European buyers.</p>
           <div class="product-specs">
-            <span>Grade: 40–70mm, 70mm+ (Jumbo)</span>
-            <span>Packing: 25kg / 50kg mesh or jute bags</span>
+            <span>Varieties: Red, Pink, White &amp; Rose</span>
+            <span>Packing: 10kg / 25kg / 50kg mesh or jute</span>
           </div>
+          <span class="product-cta">View 4 Varieties &rarr;</span>
         </div>
       </article>
-      <article class="product-card reveal">
-        <div class="product-photo"><img src="images/pune-pink-onion.jpg" alt="Pune Pink Onion" loading="lazy" onerror="this.style.display='none'"></div>
+
+      <article class="product-card reveal" data-product="grapes" role="button" tabindex="0" aria-label="View Fresh Grapes varieties">
+        <div class="product-photo"><img src="images/fresh-grapes.jpg" alt="Fresh Indian Grapes" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="product-body">
-          <h3>Pune Pink Onion</h3>
-          <p>Milder flavor with a lighter skin tone, popular with buyers who want a less pungent option.</p>
+          <h3>Fresh Grapes</h3>
+          <p>Export-grade seedless table grapes sourced from Maharashtra's premier grape belt with strict residue compliance.</p>
           <div class="product-specs">
-            <span>Grade: 45–70mm</span>
-            <span>Packing: 25kg mesh bags</span>
+            <span>Varieties: Thompson, Sonaka, Sharad &amp; Flame</span>
+            <span>Packing: 4.5kg / 5kg punnets or cartons</span>
           </div>
+          <span class="product-cta">View 4 Varieties &rarr;</span>
         </div>
       </article>
-      <article class="product-card reveal">
-        <div class="product-photo"><img src="images/white-onion.jpg" alt="White Onion" loading="lazy" onerror="this.style.display='none'"></div>
+
+      <article class="product-card reveal" data-product="pomegranates" role="button" tabindex="0" aria-label="View Fresh Pomegranates varieties">
+        <div class="product-photo"><img src="images/fresh-pomegranates.jpg" alt="Fresh Indian Pomegranates" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="product-body">
-          <h3>White Onion</h3>
-          <p>Sought after for pickling and processing, with a cleaner, sweeter taste profile.</p>
+          <h3>Fresh Pomegranates</h3>
+          <p>Deep-red, glossy arils with high Brix sweetness and blemish-free skin, pre-cooled for air and sea freight.</p>
           <div class="product-specs">
-            <span>Grade: 40–65mm</span>
-            <span>Packing: 25kg mesh bags</span>
+            <span>Varieties: Bhagwa, Super Bhagwa, Ganesh &amp; Arakta</span>
+            <span>Packing: 3kg / 3.5kg / 5kg ventilated cartons</span>
           </div>
+          <span class="product-cta">View 4 Varieties &rarr;</span>
         </div>
       </article>
-      <article class="product-card reveal">
-        <div class="product-photo"><img src="images/bangalore-rose-onion.jpg" alt="Bangalore Rose Onion" loading="lazy" onerror="this.style.display='none'"></div>
+
+      <article class="product-card reveal" data-product="chillies" role="button" tabindex="0" aria-label="View Fresh Green Chillies varieties">
+        <div class="product-photo"><img src="images/fresh-green-chillies.jpg" alt="Fresh Indian Green Chillies" loading="lazy" onerror="this.style.display='none'"></div>
         <div class="product-body">
-          <h3>Bangalore Rose Onion</h3>
-          <p>Small, sweet, and distinctively shaped — a specialty item for niche retail and culinary buyers.</p>
+          <h3>Fresh Green Chillies</h3>
+          <p>Crisp, stem-intact chillies harvested at peak pungency and color, packed in ventilated cartons for rapid air or reefer transit.</p>
           <div class="product-specs">
-            <span>Grade: 15–30mm</span>
-            <span>Packing: 10kg / 25kg bags</span>
+            <span>Varieties: G4, Teja (S17), Jwala &amp; Byadgi</span>
+            <span>Packing: 3.5kg / 5kg corrugated boxes</span>
           </div>
+          <span class="product-cta">View 4 Varieties &rarr;</span>
         </div>
       </article>
     </div>
@@ -396,7 +579,7 @@
       <a href="#top" class="brand">
         <img class="brand-logo brand-logo-footer" src="images/logo.png" alt="Oniora Exports">
       </a>
-      <p>Premium onion sourcing, grading, and export from Gangapur, Maharashtra to buyers worldwide.</p>
+      <p>Premium agricultural sourcing, grading, and export from Gangapur, Maharashtra to buyers worldwide.</p>
       <div class="footer-social">
         <a href="https://www.instagram.com/onioraexports?stkn=MTRkcmE1cDdxNGMzag==" target="_blank" rel="noopener" aria-label="Oniora Exports Co. on Instagram">IG</a>
         <a href="#" target="_blank" rel="noopener" aria-label="Oniora Exports Co. on Facebook">FB</a>
@@ -435,6 +618,21 @@
     <p class="footer-legal"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Compliance</a></p>
   </div>
 </footer>
+
+<!-- ============ PRODUCT VARIETIES MODAL ============ -->
+<div class="product-modal" id="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+  <div class="product-modal-dialog">
+    <div class="product-modal-header">
+      <div>
+        <p class="product-modal-eyebrow" id="modal-eyebrow">EXPORT VARIETIES</p>
+        <h3 class="product-modal-title" id="modal-title">Product Varieties</h3>
+        <p class="product-modal-sub" id="modal-sub"></p>
+      </div>
+      <button type="button" class="product-modal-close" id="modal-close" aria-label="Close varieties popup">&times;</button>
+    </div>
+    <div class="variety-grid" id="modal-varieties"></div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>
